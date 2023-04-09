@@ -18,7 +18,7 @@ interface PropsType {
 function MatchInfoCard({ matchInfo }: PropsType) {
   const timeToStart = new Date().getTime() - Number(matchInfo?.startDate);
 
-  // const [timeLeft, setTimeLeft] = useState();
+  // const [timeLeft, setTimeLeft] = useState(); 
 
   return (
     <Card sx={{ padding: "0.5rem" }}>
