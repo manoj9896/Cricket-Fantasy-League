@@ -41,3 +41,32 @@ export interface MatchProps {
   matchInfo: MatchInfo;
   matchScore?: any;
 }
+export interface PlayerDetails {
+  id: number;
+  name: string;
+  fullName: string;
+  nickName: string;
+  captain: boolean;
+  role: string;
+  keeper: boolean;
+  substitute: boolean;
+  teamId: number;
+  battingStyle: string;
+  bowlingStyle: string;
+  faceImageId: number;
+}
+
+export interface MatchDetails {
+  team1: {
+    id: number;
+    name: string;
+    playerDetails: PlayerDetails[];
+    shortName: string;
+  };
+  team2: {
+    id: number;
+    name: string;
+    playerDetails: PlayerDetails[];
+    shortName: number;
+  };
+}

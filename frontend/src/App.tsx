@@ -4,19 +4,27 @@ import {
   Button,
   createTheme,
   CssBaseline,
-  Tab,
-  Tabs,
+  IconButton,
   ThemeProvider,
   Toolbar,
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import DisplayMatches from "./components/DisplayMatches";
-import { MatchOccurrence } from "./types";
+import SportsCricketIcon from "@mui/icons-material/SportsCricket";
 import TabManager, { TabProps } from "./components/tabManager";
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#ff0000", // set your desired primary color here
+    },
+    secondary: {
+      main: "#00ff00", // set your desired secondary color here
+    },
+  },
 
-const navItems: MatchOccurrence[] = ["live", "upcoming"];
+});
+
 const tabs: TabProps[] = [
   {
     component: <DisplayMatches type="live" />,
@@ -32,24 +40,25 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar component="nav" position="static">
-        <Toolbar>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
-            Indian Premier League 2023
-          </Typography>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff", textDecoration: "none" }}>
-                {item}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </AppBar>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static" color="primary">
+          <Toolbar>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+            >
+              <SportsCricketIcon />
+            </IconButton>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              Myheroes
+            </Typography>
+            <Button color="inherit">Invite your friends</Button>
+          </Toolbar>
+        </AppBar>
+      </Box>
       <TabManager tabs={tabs} />
     </ThemeProvider>
   );

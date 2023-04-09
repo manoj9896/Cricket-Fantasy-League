@@ -27,7 +27,7 @@ function DisplayMatches({ type }: PropsType) {
         {matches?.map((match) => {
           return (
             <Grid item xs={12} md={6} lg={3} key={match.matchInfo.matchId}>
-              {type === "live" ? <MatchInfoCard /> : ""}
+              <MatchInfoCard matchInfo={match?.matchInfo} />
             </Grid>
           );
         })}
